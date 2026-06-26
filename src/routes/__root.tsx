@@ -88,6 +88,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Atendimento a domicílio em Vargem Grande Paulista e Cotia. Para pessoa física e frotas.",
       },
       { name: "twitter:card", content: "summary" },
+      { name: "twitter:title", content: "Dr. Limpow — Higienização e estética automotiva a domicílio" },
+      { name: "description", content: "Dr. Limpow's Shine Hub offers professional automotive and upholstery cleaning services at your location." },
+      { property: "og:description", content: "Dr. Limpow's Shine Hub offers professional automotive and upholstery cleaning services at your location." },
+      { name: "twitter:description", content: "Dr. Limpow's Shine Hub offers professional automotive and upholstery cleaning services at your location." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/de56955a-bd1a-4c95-b01c-48adabf32934/id-preview-1b3ba239--1e3b5d84-e442-4174-8074-a5c52105baa1.lovable.app-1782492798645.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/de56955a-bd1a-4c95-b01c-48adabf32934/id-preview-1b3ba239--1e3b5d84-e442-4174-8074-a5c52105baa1.lovable.app-1782492798645.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
