@@ -69,8 +69,8 @@
   --primary-hover: var(--limpow-blue-light);
   --primary-pressed: var(--limpow-blue-dark);
   
-  --secondary: var(--limpow-bg-elevated-1);
-  --secondary-foreground: var(--limpow-text-primary);
+  --secondary: var(--limpow-text-secondary);
+  --secondary-foreground: var(--limpow-bg);
   
   --muted: var(--limpow-bg-elevated-1);
   --muted-foreground: #9BB2D1; /* Visível, limpo, matizado em azul (evita cinza escuro/chumbo) */

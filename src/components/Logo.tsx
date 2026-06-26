@@ -16,7 +16,7 @@ export function LogoIcon({
   if (!error) {
     return (
       <img
-        src="/logos/Dr.Limpow%20Icone.svg"
+        src="/logos/dr-limpow-icone.svg"
         alt="Ícone Dr. Limpow"
         width={size}
         height={size}
@@ -87,7 +87,7 @@ export function LogoHorizontal({ iconSize = 36, textSize = 24 }: { iconSize?: nu
   if (!error) {
     return (
       <img
-        src="/logos/Dr.Limpow%20Horiz.svg"
+        src="/logos/dr-limpow-horiz.svg"
         alt="Dr. Limpow"
         onError={() => setError(true)}
         style={{ height: iconSize * 1.1, objectFit: "contain" }}
@@ -109,7 +109,7 @@ export function LogoVertical({ iconSize = 72, textSize = 28 }: { iconSize?: numb
   if (!error) {
     return (
       <img
-        src="/logos/Dr.Limpow%20Vert.svg"
+        src="/logos/dr-limpow-vert.svg"
         alt="Dr. Limpow"
         onError={() => setError(true)}
         style={{ height: iconSize * 1.6, objectFit: "contain" }}
@@ -131,7 +131,7 @@ export function LogoTip({ iconSize = 44, textSize = 26 }: { iconSize?: number; t
   if (!error) {
     return (
       <img
-        src="/logos/Dr.Limpow%20Tip.svg"
+        src="/logos/dr-limpow-tip.svg"
         alt="Dr. Limpow"
         onError={() => setError(true)}
         style={{ height: iconSize * 1.3, objectFit: "contain" }}
