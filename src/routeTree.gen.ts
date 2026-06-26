@@ -9,8 +9,32 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as LavagemAutomotivaRouteImport } from './routes/lavagem-automotiva'
+import { Route as EstofadosRouteImport } from './routes/estofados'
+import { Route as EmpresasRouteImport } from './routes/empresas'
 import { Route as IndexRouteImport } from './routes/index'
 
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LavagemAutomotivaRoute = LavagemAutomotivaRouteImport.update({
+  id: '/lavagem-automotiva',
+  path: '/lavagem-automotiva',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EstofadosRoute = EstofadosRouteImport.update({
+  id: '/estofados',
+  path: '/estofados',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EmpresasRoute = EmpresasRouteImport.update({
+  id: '/empresas',
+  path: '/empresas',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +43,83 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/empresas': typeof EmpresasRoute
+  '/estofados': typeof EstofadosRoute
+  '/lavagem-automotiva': typeof LavagemAutomotivaRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/empresas': typeof EmpresasRoute
+  '/estofados': typeof EstofadosRoute
+  '/lavagem-automotiva': typeof LavagemAutomotivaRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/empresas': typeof EmpresasRoute
+  '/estofados': typeof EstofadosRoute
+  '/lavagem-automotiva': typeof LavagemAutomotivaRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/empresas'
+    | '/estofados'
+    | '/lavagem-automotiva'
+    | '/sitemap.xml'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/empresas' | '/estofados' | '/lavagem-automotiva' | '/sitemap.xml'
+  id:
+    | '__root__'
+    | '/'
+    | '/empresas'
+    | '/estofados'
+    | '/lavagem-automotiva'
+    | '/sitemap.xml'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  EmpresasRoute: typeof EmpresasRoute
+  EstofadosRoute: typeof EstofadosRoute
+  LavagemAutomotivaRoute: typeof LavagemAutomotivaRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lavagem-automotiva': {
+      id: '/lavagem-automotiva'
+      path: '/lavagem-automotiva'
+      fullPath: '/lavagem-automotiva'
+      preLoaderRoute: typeof LavagemAutomotivaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/estofados': {
+      id: '/estofados'
+      path: '/estofados'
+      fullPath: '/estofados'
+      preLoaderRoute: typeof EstofadosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/empresas': {
+      id: '/empresas'
+      path: '/empresas'
+      fullPath: '/empresas'
+      preLoaderRoute: typeof EmpresasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,17 +132,11 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  EmpresasRoute: EmpresasRoute,
+  EstofadosRoute: EstofadosRoute,
+  LavagemAutomotivaRoute: LavagemAutomotivaRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
