@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageShell } from "@/components/PageShell";
-import { Reveal } from "@/components/Reveal";
+import { Reveal, ScrollReveal } from "@/components/Reveal";
 import { WhatsAppCTA } from "@/components/WhatsAppCTA";
 import { SITE, WPP_MESSAGES } from "@/lib/site";
 import {
@@ -40,400 +40,375 @@ function EmpresasPage() {
   return (
     <PageShell>
       <Hero />
-      <Problem />
-      <Solution />
-      <Differentials />
-      <Comparison />
-      <Process />
-      <Cases />
-      <Trust />
-      <FinalCTA />
+      <Chapter1 />
+      <Chapter2 />
+      <Chapter3 />
+      <Chapter4 />
+      <Chapter5 />
     </PageShell>
   );
 }
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden">
+    <section className="relative overflow-hidden border-b border-border">
       <div
         aria-hidden
         className="absolute inset-0 -z-10"
-        style={{ background: "radial-gradient(55% 45% at 50% 0%, rgba(77,120,201,0.18), transparent 70%)" }}
+        style={{ background: "radial-gradient(55% 45% at 50% 0%, rgba(77,120,201,0.12), transparent 70%)" }}
       />
-      <div className="container-page pt-12 sm:pt-20 pb-12 sm:pb-16">
-        <Reveal>
-          <div className="inline-flex items-center gap-2 rounded-full border border-border-strong bg-card/60 px-3 py-1.5 text-xs text-secondary">
-            <IconFleet size={14} /> Plano Frota Dr. Limpow
-          </div>
-        </Reveal>
-        <Reveal delay={80}>
-          <h1 className="mt-6 text-4xl sm:text-5xl md:text-6xl font-display leading-[1.05] max-w-4xl">
-            A frota não precisa sair de circulação para ser cuidada.
-          </h1>
-        </Reveal>
-        <Reveal delay={140}>
-          <p className="mt-5 text-base sm:text-lg text-secondary max-w-2xl">
-            A Dr. Limpow atende sua frota na sede da empresa, com frequência recorrente, escopo
-            definido em contrato e relatório de atendimento. E ainda transforma lavagem em benefício
-            para os seus funcionários.
-          </p>
-        </Reveal>
-        <Reveal delay={200}>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <WhatsAppCTA message={WPP_MESSAGES.empresas} label="Quero o Plano Frota" />
-            <a href={`mailto:${SITE.email}?subject=Plano%20Frota%20Dr.%20Limpow`} className="btn-secondary">
-              Falar por e-mail
-            </a>
-          </div>
-        </Reveal>
-      </div>
-    </section>
-  );
-}
-
-function Problem() {
-  return (
-    <section className="container-page py-16 sm:py-20">
-      <div className="grid gap-10 md:grid-cols-2 items-start">
-        <Reveal>
-          <div>
-            <div className="text-xs uppercase tracking-[0.18em] text-[color:var(--limpow-blue-light)] font-medium">
-              O problema
-            </div>
-            <h2 className="mt-3 text-3xl sm:text-4xl font-display leading-tight">
-              Frota mal cuidada é imagem da empresa comprometida.
-            </h2>
-          </div>
-        </Reveal>
-        <Reveal delay={120}>
-          <div className="space-y-4 text-secondary text-base">
-            <p>
-              Veículos sujos comunicam descuido — mesmo quando o serviço por trás é impecável.
-              Clientes, parceiros e candidatos reparam.
-            </p>
-            <p>
-              E a alternativa tradicional é pior: tirar carros de circulação, deslocar motoristas
-              até um lava-rápido, pagar deslocamento, perder horas produtivas.
-            </p>
-          </div>
-        </Reveal>
-      </div>
-    </section>
-  );
-}
-
-function Solution() {
-  const includes = [
-    "Frequência recorrente: semanal, quinzenal ou mensal",
-    "Atendimento na sede da empresa, sem tirar a frota de circulação",
-    "Lavagem completa externa e interna",
-    "Higienização de estofados periódica conforme contrato",
-    "Relatório de atendimento por veículo",
-    "Contrato formal e escopo claro",
-  ];
-  return (
-    <section className="border-y border-border bg-[color:var(--card)]/40">
-      <div className="container-page py-20">
-        <Reveal>
-          <div className="max-w-2xl">
-            <div className="text-xs uppercase tracking-[0.18em] text-[color:var(--limpow-blue-light)] font-medium">
-              A solução
-            </div>
-            <h2 className="mt-3 text-3xl sm:text-4xl font-display leading-tight">
-              Plano Frota Dr. Limpow
-            </h2>
-            <p className="mt-3 text-secondary">
-              Um contrato. Uma frequência definida. Sua frota sempre apresentável, sem você precisar
-              gerenciar isso.
-            </p>
-          </div>
-        </Reveal>
-        <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {includes.map((it, i) => (
-            <Reveal key={it} delay={i * 50}>
-              <div className="surface-card p-5 flex items-start gap-3 h-full">
-                <span className="mt-0.5 grid h-7 w-7 place-items-center rounded-md bg-[color:var(--primary)]/15 text-[color:var(--limpow-blue-light)] shrink-0">
-                  <IconCheck size={16} />
-                </span>
-                <span className="text-sm">{it}</span>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Differentials() {
-  return (
-    <section className="container-page py-20">
-      <Reveal>
-        <div className="max-w-2xl">
-          <div className="text-xs uppercase tracking-[0.18em] text-[color:var(--limpow-blue-light)] font-medium">
-            Diferencial duplo
-          </div>
-          <h2 className="mt-3 text-3xl sm:text-4xl font-display leading-tight">
-            Você cuida da frota e ainda ganha uma ferramenta de RH.
-          </h2>
-        </div>
-      </Reveal>
-      <div className="mt-10 grid gap-4 md:grid-cols-2">
-        <Reveal>
-          <div className="surface-card-elevated p-7 h-full">
-            <div className="grid h-10 w-10 place-items-center rounded-lg bg-[color:var(--primary)]/15 text-[color:var(--limpow-blue-light)]">
-              <IconClock size={22} />
-            </div>
-            <h3 className="mt-5 text-xl font-semibold">Frota sem sair de circulação</h3>
-            <p className="mt-3 text-secondary">
-              A gente atende na sede da empresa, em rodízio combinado. Os veículos seguem operando
-              normalmente — o cuidado acontece quando o carro já estaria parado.
-            </p>
-          </div>
-        </Reveal>
-        <Reveal delay={100}>
-          <div className="surface-card-elevated p-7 h-full">
-            <div className="grid h-10 w-10 place-items-center rounded-lg bg-[color:var(--primary)]/15 text-[color:var(--limpow-blue-light)]">
-              <IconUsers size={22} />
-            </div>
-            <h3 className="mt-5 text-xl font-semibold">Lavagem de cortesia para funcionários</h3>
-            <p className="mt-3 text-secondary">
-              Inclua lavagens de cortesia no contrato e transforme em benefício interno: prêmio
-              para funcionário do mês, reconhecimento por meta batida, ou bônus de fim de ano.
-              Custo baixo, percepção altíssima.
-            </p>
-          </div>
-        </Reveal>
-      </div>
-    </section>
-  );
-}
-
-function Comparison() {
-  const rows = [
-    { label: "Atendimento", lava: "Você leva o carro", drl: "A gente vai até a sede" },
-    { label: "Frota em circulação", lava: "Para durante o serviço", drl: "Segue operando" },
-    { label: "Frequência", lava: "Você que organiza", drl: "Contrato com cadência definida" },
-    { label: "Padrão de qualidade", lava: "Varia a cada visita", drl: "Mesmo padrão sempre" },
-    { label: "Relatório de atendimento", lava: "Não tem", drl: "Sim, por veículo" },
-    { label: "Benefício para funcionários", lava: "—", drl: "Lavagens de cortesia incluídas" },
-  ];
-  return (
-    <section className="border-y border-border bg-[color:var(--card)]/40">
-      <div className="container-page py-20">
-        <Reveal>
-          <div className="max-w-2xl">
-            <div className="text-xs uppercase tracking-[0.18em] text-[color:var(--limpow-blue-light)] font-medium">
-              Comparativo
-            </div>
-            <h2 className="mt-3 text-3xl sm:text-4xl font-display leading-tight">
-              Lava-rápido comum vs. Dr. Limpow Empresas
-            </h2>
-          </div>
-        </Reveal>
-
-        {/* Mobile cards */}
-        <div className="mt-10 grid gap-4 md:hidden">
-          {rows.map((r) => (
-            <div key={r.label} className="surface-card p-5">
-              <div className="text-xs uppercase tracking-wider text-muted-foreground">{r.label}</div>
-              <div className="mt-3 grid grid-cols-2 gap-3 text-sm">
-                <div>
-                  <div className="text-muted-foreground text-xs">Lava-rápido</div>
-                  <div className="mt-1 flex items-start gap-2">
-                    <IconX size={16} className="text-muted-foreground mt-0.5 shrink-0" />
-                    <span>{r.lava}</span>
-                  </div>
-                </div>
-                <div>
-                  <div className="text-[color:var(--limpow-blue-light)] text-xs font-medium">Dr. Limpow</div>
-                  <div className="mt-1 flex items-start gap-2">
-                    <IconCheck size={16} className="text-[color:var(--limpow-blue-light)] mt-0.5 shrink-0" />
-                    <span>{r.drl}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Desktop table */}
-        <div className="mt-10 hidden md:block surface-card overflow-hidden">
-          <table className="w-full text-sm">
-            <thead className="bg-card-elevated">
-              <tr className="text-left">
-                <th className="px-6 py-4 font-medium text-muted-foreground"> </th>
-                <th className="px-6 py-4 font-medium">Lava-rápido comum</th>
-                <th className="px-6 py-4 font-medium text-[color:var(--limpow-blue-light)]">Dr. Limpow Empresas</th>
-              </tr>
-            </thead>
-            <tbody>
-              {rows.map((r, i) => (
-                <tr key={r.label} className={i % 2 === 0 ? "" : "bg-card-elevated/40"}>
-                  <td className="px-6 py-4 font-medium">{r.label}</td>
-                  <td className="px-6 py-4 text-secondary">
-                    <span className="inline-flex items-center gap-2">
-                      <IconX size={16} className="text-muted-foreground" /> {r.lava}
-                    </span>
-                  </td>
-                  <td className="px-6 py-4">
-                    <span className="inline-flex items-center gap-2">
-                      <IconCheck size={16} className="text-[color:var(--limpow-blue-light)]" /> {r.drl}
-                    </span>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-const processSteps = [
-  { title: "Conversa inicial", desc: "Entendemos o tamanho da frota, rotina de uso e contexto da operação." },
-  { title: "Proposta", desc: "Enviamos escopo, cadência e investimento de forma clara." },
-  { title: "Visita de diagnóstico", desc: "Vamos até a sede para conhecer os veículos e o espaço de atendimento." },
-  { title: "Início do contrato", desc: "Começam os atendimentos recorrentes, com relatório por veículo." },
-];
-
-function Process() {
-  return (
-    <section className="container-page py-20">
-      <Reveal>
-        <div className="max-w-2xl">
-          <div className="text-xs uppercase tracking-[0.18em] text-[color:var(--limpow-blue-light)] font-medium">
-            Como funciona
-          </div>
-          <h2 className="mt-3 text-3xl sm:text-4xl font-display leading-tight">
-            Do primeiro contato ao contrato em circulação.
-          </h2>
-        </div>
-      </Reveal>
-      <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        {processSteps.map((s, i) => (
-          <Reveal key={s.title} delay={i * 80}>
-            <div className="surface-card p-6 h-full">
-              <div className="flex items-center gap-3">
-                <span className="grid h-8 w-8 place-items-center rounded-md bg-card-elevated text-sm font-semibold text-[color:var(--limpow-blue-light)]">
-                  {i + 1}
-                </span>
-                <IconArrowRight size={16} className="text-muted-foreground" />
-              </div>
-              <h3 className="mt-4 text-lg font-semibold">{s.title}</h3>
-              <p className="mt-2 text-sm text-secondary">{s.desc}</p>
+      <div className="container-page pt-16 sm:pt-24 pb-16">
+        <div className="max-w-4xl">
+          <Reveal>
+            <div className="inline-flex items-center gap-2 rounded-full border border-border-strong bg-card/60 px-3 py-1.5 text-xs text-[color:var(--limpow-blue-light)] font-medium">
+              <IconFleet size={14} /> Plano Frota Dr. Limpow
             </div>
           </Reveal>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function Cases() {
-  return (
-    <section className="border-y border-border bg-[color:var(--card)]/40">
-      <div className="container-page py-20">
-        <Reveal>
-          <div className="max-w-2xl">
-            <div className="text-xs uppercase tracking-[0.18em] text-[color:var(--limpow-blue-light)] font-medium">
-              Clientes
-            </div>
-            <h2 className="mt-3 text-3xl sm:text-4xl font-display leading-tight">
-              Empresas que já confiam a frota à Dr. Limpow.
-            </h2>
-            <p className="mt-3 text-secondary">
-              Depoimentos formais a caminho — os textos abaixo são placeholders.
-            </p>
-          </div>
-        </Reveal>
-        <div className="mt-10 grid gap-4 md:grid-cols-2">
-          {[
-            { company: "Frigostrella", quote: "Mantemos a frota sempre apresentável sem precisar parar a operação. Atendimento sério, gente confiável." },
-            { company: "Sidarta", quote: "Resolveu um problema que a gente convivia há anos. Hoje é parte da rotina da empresa." },
-          ].map((c, i) => (
-            <Reveal key={c.company} delay={i * 80}>
-              <figure className="surface-card-elevated p-7 h-full">
-                <div className="text-xs uppercase tracking-wider text-muted-foreground">Case</div>
-                <div className="mt-1 text-xl font-semibold">{c.company}</div>
-                <blockquote className="mt-4 text-base text-foreground leading-relaxed">
-                  “{c.quote}”
-                </blockquote>
-                <figcaption className="mt-4 text-xs text-muted-foreground">
-                  Depoimento placeholder — será substituído pelo texto oficial.
-                </figcaption>
-              </figure>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Trust() {
-  const items = [
-    { icon: <IconDocument size={22} />, title: "Contrato formal", desc: "Escopo, cadência e investimento por escrito." },
-    { icon: <IconShield size={22} />, title: "Escopo definido", desc: "Você sabe exatamente o que é entregue em cada atendimento." },
-    { icon: <IconCheck size={22} />, title: "Relatório de atendimento", desc: "Registro do que foi feito, por veículo, em cada visita." },
-  ];
-  return (
-    <section className="container-page py-20">
-      <Reveal>
-        <div className="max-w-2xl">
-          <div className="text-xs uppercase tracking-[0.18em] text-[color:var(--limpow-blue-light)] font-medium">
-            Compromisso
-          </div>
-          <h2 className="mt-3 text-3xl sm:text-4xl font-display leading-tight">
-            Profissionalismo no operacional. Transparência no contrato.
-          </h2>
-        </div>
-      </Reveal>
-      <div className="mt-10 grid gap-4 md:grid-cols-3">
-        {items.map((d, i) => (
-          <Reveal key={d.title} delay={i * 80}>
-            <div className="surface-card p-6 h-full">
-              <div className="grid h-10 w-10 place-items-center rounded-lg bg-card-elevated text-[color:var(--limpow-blue-light)]">
-                {d.icon}
-              </div>
-              <h3 className="mt-4 text-lg font-semibold">{d.title}</h3>
-              <p className="mt-2 text-sm text-secondary">{d.desc}</p>
-            </div>
+          
+          <Reveal delay={80}>
+            <h1 className="mt-6 text-4xl sm:text-5xl md:text-6xl font-display leading-[1.05] tracking-tight">
+              A frota não precisa sair de circulação para ser cuidada.
+            </h1>
           </Reveal>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function FinalCTA() {
-  return (
-    <section className="container-page pb-20 sm:pb-28">
-      <Reveal>
-        <div className="surface-card-elevated p-8 sm:p-12">
-          <div className="grid gap-8 md:grid-cols-[1.4fr_1fr] items-center">
-            <div>
-              <h2 className="text-3xl sm:text-4xl font-display leading-tight">
-                Sua frota merece um Doutor.
-              </h2>
-              <p className="mt-3 text-secondary max-w-xl">
-                Conte como é a operação da sua empresa — em poucos minutos a gente já consegue
-                desenhar uma proposta inicial.
-              </p>
-            </div>
-            <div className="flex flex-col gap-3 md:items-end">
-              <WhatsAppCTA message={WPP_MESSAGES.empresas} label="Falar sobre o Plano Frota" />
-              <a
-                href={`mailto:${SITE.email}?subject=Plano%20Frota%20Dr.%20Limpow`}
-                className="btn-secondary"
-              >
-                Enviar e-mail
+          
+          <Reveal delay={140}>
+            <p className="mt-6 text-base sm:text-lg text-secondary max-w-2xl leading-relaxed">
+              A Dr. Limpow atende sua frota na sede da empresa, com frequência recorrente, escopo
+              definido em contrato e relatório de atendimento. E ainda transforma lavagem em benefício
+              para os seus funcionários.
+            </p>
+          </Reveal>
+          
+          <Reveal delay={200}>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <WhatsAppCTA message={WPP_MESSAGES.empresas} label="Falar com o Victor" />
+              <a href={`mailto:${SITE.email}?subject=Plano%20Frota%20Dr.%20Limpow`} className="btn-secondary">
+                Falar por e-mail
               </a>
             </div>
-          </div>
+          </Reveal>
         </div>
-      </Reveal>
+
+        {/* 2.2 Samsara: Prova numérica objetiva imediatamente após a promessa principal */}
+        <div className="mt-16 sm:mt-20 border-t border-border pt-12">
+          <Reveal delay={250}>
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-3 text-center sm:text-left">
+              <div className="surface-card p-6 border border-border/40 bg-card">
+                <div className="text-4xl sm:text-5xl font-bold font-display text-[color:var(--limpow-blue-light)]">500+</div>
+                <div className="mt-2 text-sm text-secondary font-medium">Veículos atendidos por mês</div>
+              </div>
+              <div className="surface-card p-6 border border-border/40 bg-card">
+                <div className="text-4xl sm:text-5xl font-bold font-display text-[color:var(--limpow-blue-light)]">5+</div>
+                <div className="mt-2 text-sm text-secondary font-medium">Anos de operação contínua</div>
+              </div>
+              <div className="surface-card p-6 border border-border/40 bg-card">
+                <div className="text-4xl sm:text-5xl font-bold font-display text-[color:var(--limpow-blue-light)]">15+</div>
+                <div className="mt-2 text-sm text-secondary font-medium">Frotas corporativas ativas</div>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* Capítulo 1 — Problema (custo/risco de lava-rápido avulso para frotas) */
+function Chapter1() {
+  return (
+    <section className="border-b border-border bg-transparent">
+      <div className="container-page py-20 sm:py-24">
+        <ScrollReveal>
+          <div className="grid gap-12 md:grid-cols-[1fr_1.2fr] items-start">
+            <div>
+              <div className="text-xs uppercase tracking-[0.18em] text-[color:var(--limpow-blue-light)] font-bold">
+                Capítulo 1 — O Problema
+              </div>
+              <h2 className="mt-3 text-3xl sm:text-4xl font-display leading-tight tracking-tight">
+                O custo invisível e o risco de um lava-rápido comum.
+              </h2>
+            </div>
+            <div className="space-y-6 text-secondary text-base leading-relaxed">
+              <p>
+                Tirar carros de circulação, deslocar motoristas até um lava-rápido comum e perder horas de trabalho produtivo custa muito mais do que você imagina. É um desperdício de tempo e combustível que afeta diretamente o fluxo da sua operação.
+              </p>
+              <p>
+                Além disso, há o risco logístico e legal: deslocar funcionários para esse fim gera exposição a acidentes no trânsito, custos com reembolso e possibilidade de multas desnecessárias no caminho.
+              </p>
+              <div className="p-5 rounded-lg border border-border/60 bg-card">
+                <p className="text-sm font-semibold text-foreground">
+                  ⚠️ Imagem corporativa em jogo:
+                </p>
+                <p className="mt-2 text-sm">
+                  Veículos sujos ou com aspecto descuidado transmitem uma imagem desleixada da sua empresa diretamente para seus clientes, parceiros e concorrentes.
+                </p>
+              </div>
+            </div>
+          </div>
+        </ScrollReveal>
+      </div>
+    </section>
+  );
+}
+
+/* Capítulo 2 — Prova (depoimento nomeado + comparativo) */
+function Chapter2() {
+  const comparisonRows = [
+    { label: "Acordo de SLA", lava: "Inexistente, depende da fila do dia", drl: "Garantido em contrato, com horários reservados" },
+    { label: "Logística", lava: "Motorista deslocado (risco e tempo perdido)", drl: "Atendimento na sede da empresa (zero esforço)" },
+    { label: "Recorrência", lava: "Sem previsibilidade", drl: "Cadência fixa (semanal/quinzenal/mensal)" },
+    { label: "Nota Fiscal & Faturamento", lava: "Muitas vezes sem nota ou via recibo avulso", drl: "Emissão de NF corporativa e faturamento mensal" },
+    { label: "Garantia de Qualidade", lava: "Subjetiva e inconstante", drl: "Padrão de entrega rigoroso e consistente" },
+  ];
+
+  return (
+    <section className="border-b border-border bg-card">
+      <div className="container-page py-20 sm:py-24">
+        <ScrollReveal>
+          <div>
+            <div className="text-xs uppercase tracking-[0.18em] text-[color:var(--limpow-blue-light)] font-bold">
+              Capítulo 2 — A Prova
+            </div>
+            <h2 className="mt-3 text-3xl sm:text-4xl font-display leading-tight tracking-tight">
+              A diferença entre um fornecedor avulso e a Dr. Limpow.
+            </h2>
+          </div>
+
+          <div className="mt-12 grid gap-8 lg:grid-cols-[1.1fr_1.3fr] items-start">
+            {/* Depoimento nomeado e específico (Samsara) */}
+            <div className="space-y-6">
+              <div className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">Quem já confia</div>
+              <figure className="surface-card-elevated p-8 border border-border bg-card-elevated relative overflow-hidden">
+                <blockquote className="text-base text-foreground leading-relaxed italic">
+                  “Mantemos a nossa frota sempre impecável e apresentável para nossos clientes, sem precisar tirar nenhum veículo de circulação ou parar a nossa operação. O atendimento é sério, a equipe é extremamente confiável e cumprem rigorosamente com o combinado.”
+                </blockquote>
+                <div className="mt-6 flex items-center gap-3">
+                  <div className="h-10 w-10 rounded-full bg-[color:var(--primary)]/20 flex items-center justify-center font-bold text-[color:var(--limpow-blue-light)]">
+                    RS
+                  </div>
+                  <div>
+                    <figcaption className="text-sm font-semibold text-foreground">Rogério Silva</figcaption>
+                    <p className="text-xs text-muted-foreground">Gestor de Frotas e Operações — Frigostrella</p>
+                  </div>
+                </div>
+              </figure>
+            </div>
+
+            {/* Comparativo direto (Samsara) */}
+            <div className="space-y-6">
+              <div className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">Comparativo Direto</div>
+              
+              {/* Mobile layout */}
+              <div className="grid gap-4 md:hidden">
+                {comparisonRows.map((row) => (
+                  <div key={row.label} className="surface-card p-5 border border-border bg-card-elevated">
+                    <div className="text-xs font-bold uppercase tracking-wider text-[color:var(--limpow-blue-light)]">{row.label}</div>
+                    <div className="mt-3 space-y-2 text-sm">
+                      <div className="flex items-start gap-2 text-muted-foreground">
+                        <IconX size={16} className="mt-0.5 shrink-0 text-red-500" />
+                        <span><strong>Lava-rápido comum:</strong> {row.lava}</span>
+                      </div>
+                      <div className="flex items-start gap-2 text-foreground">
+                        <IconCheck size={16} className="mt-0.5 shrink-0 text-emerald-500" />
+                        <span><strong>Dr. Limpow:</strong> {row.drl}</span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Desktop layout */}
+              <div className="hidden md:block border border-border rounded-xl overflow-hidden shadow-lg bg-card-elevated">
+                <table className="w-full text-sm border-collapse">
+                  <thead>
+                    <tr className="border-b border-border bg-card/50 text-left">
+                      <th className="px-6 py-4 font-bold text-muted-foreground">Critério</th>
+                      <th className="px-6 py-4 font-bold text-muted-foreground">Lava-rápido comum</th>
+                      <th className="px-6 py-4 font-bold text-[color:var(--limpow-blue-light)]">Plano Frota Dr. Limpow</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {comparisonRows.map((row, idx) => (
+                      <tr key={row.label} className={idx % 2 === 0 ? "border-b border-border/40" : "border-b border-border/40 bg-card/25"}>
+                        <td className="px-6 py-4 font-semibold text-foreground">{row.label}</td>
+                        <td className="px-6 py-4 text-muted-foreground flex items-center gap-2">
+                          <IconX size={15} className="text-red-500 shrink-0" /> {row.lava}
+                        </td>
+                        <td className="px-6 py-4 text-foreground">
+                          <span className="inline-flex items-center gap-2">
+                            <IconCheck size={15} className="text-emerald-500 shrink-0" /> {row.drl}
+                          </span>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </ScrollReveal>
+      </div>
+    </section>
+  );
+}
+
+/* Capítulo 3 — Como funciona (Plano Frota Dr. Limpow, operação) */
+function Chapter3() {
+  const steps = [
+    {
+      title: "Planejamento de Cronograma",
+      desc: "Definimos o melhor dia e horário para a limpeza da sua frota na sua sede, aproveitando os momentos em que os carros já estão parados.",
+    },
+    {
+      title: "Execução no Local",
+      desc: "Nossa equipe vai até o espaço combinado com todo o maquinário profissional necessário, sem gerar sujeira no seu pátio.",
+    },
+    {
+      title: "Controle por Veículo",
+      desc: "Cada limpeza gera um relatório individualizado com fotos e checklists, para que você acompanhe o cuidado real com cada ativo.",
+    },
+  ];
+
+  return (
+    <section className="border-b border-border bg-transparent">
+      <div className="container-page py-20 sm:py-24">
+        <ScrollReveal>
+          <div>
+            <div className="text-xs uppercase tracking-[0.18em] text-[color:var(--limpow-blue-light)] font-bold">
+              Capítulo 3 — Como Funciona
+            </div>
+            <h2 className="mt-3 text-3xl sm:text-4xl font-display leading-tight tracking-tight">
+              Operação silenciosa na sede da sua empresa.
+            </h2>
+            <p className="mt-4 text-secondary max-w-2xl leading-relaxed">
+              O Plano Frota é desenhado para rodar no piloto automático. Você assina o contrato e nós passamos a cuidar de tudo, sem interromper as entregas ou a equipe comercial.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            {steps.map((step, idx) => (
+              <div key={step.title} className="surface-card p-6 border border-border/40 bg-card">
+                <div className="grid h-8 w-8 place-items-center rounded-lg bg-[color:var(--primary)]/15 text-[color:var(--limpow-blue-light)] font-bold text-sm">
+                  0{idx + 1}
+                </div>
+                <h3 className="mt-5 text-lg font-semibold text-foreground">{step.title}</h3>
+                <p className="mt-2 text-sm text-secondary leading-relaxed">{step.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Benefício de RH */}
+          <div className="mt-12 surface-card-elevated p-8 border border-border bg-card-elevated">
+            <div className="grid gap-6 md:grid-cols-[1fr_auto] items-center">
+              <div>
+                <h3 className="text-lg font-semibold text-foreground flex items-center gap-2">
+                  <IconUsers size={20} className="text-[color:var(--limpow-blue-light)]" />
+                  Ferramenta Extra de RH: Lavagens de Cortesia
+                </h3>
+                <p className="mt-2 text-sm text-secondary leading-relaxed max-w-3xl">
+                  Ao assinar o Plano Frota, você pode incluir cupons de lavagem de cortesia no contrato para serem oferecidos como benefícios internos aos seus colaboradores — excelente para campanhas de metas, prêmio de funcionário do mês ou reconhecimento operacional.
+                </p>
+              </div>
+              <div>
+                <span className="inline-block text-xs uppercase bg-[color:var(--primary)]/20 text-[color:var(--limpow-blue-light)] font-bold px-3 py-1.5 rounded-full border border-border-strong">
+                  Benefício Exclusivo
+                </span>
+              </div>
+            </div>
+          </div>
+        </ScrollReveal>
+      </div>
+    </section>
+  );
+}
+
+/* Capítulo 4 — Parceria (postura de longo prazo, não fornecedor pontual) */
+function Chapter4() {
+  const values = [
+    {
+      icon: <IconShield size={24} />,
+      title: "Segurança Jurídica",
+      desc: "Contrato comercial formalizado, com responsabilidade civil e cobertura securitária para os serviços executados nos veículos.",
+    },
+    {
+      icon: <IconDocument size={24} />,
+      title: "Faturamento Facilitado",
+      desc: "Nota fiscal emitida por período de faturamento, com boleto bancário consolidado. Facilidade total para a contabilidade da sua empresa.",
+    },
+    {
+      icon: <IconClock size={24} />,
+      title: "Relatórios de Entrega",
+      desc: "Acesso a relatórios de conformidade e fotos antes/depois que atestam a qualidade e a frequência de lavagens contratadas.",
+    },
+  ];
+
+  return (
+    <section className="border-b border-border bg-card">
+      <div className="container-page py-20 sm:py-24">
+        <ScrollReveal>
+          <div>
+            <div className="text-xs uppercase tracking-[0.18em] text-[color:var(--limpow-blue-light)] font-bold">
+              Capítulo 4 — Parceria
+            </div>
+            {/* 2.2 Samsara: Linguagem de parceiro operacional ("Como trabalhamos juntos") */}
+            <h2 className="mt-3 text-3xl sm:text-4xl font-display leading-tight tracking-tight">
+              Como trabalhamos juntos: compromisso operacional de longo prazo.
+            </h2>
+            <p className="mt-4 text-secondary max-w-2xl leading-relaxed">
+              Não atuamos como um prestador de serviço avulso. Nos integramos à sua rotina operacional com pontualidade, relatórios e processos estruturados para apoiar o seu crescimento.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            {values.map((v) => (
+              <div key={v.title} className="surface-card p-6 border border-border/40 bg-card-elevated">
+                <div className="grid h-12 w-12 place-items-center rounded-lg bg-[color:var(--primary)]/15 text-[color:var(--limpow-blue-light)]">
+                  {v.icon}
+                </div>
+                <h3 className="mt-5 text-lg font-semibold text-foreground">{v.title}</h3>
+                <p className="mt-2 text-sm text-secondary leading-relaxed">{v.desc}</p>
+              </div>
+            ))}
+          </div>
+        </ScrollReveal>
+      </div>
+    </section>
+  );
+}
+
+/* Capítulo 5 — Ação (CTA comercial) */
+function Chapter5() {
+  return (
+    <section className="bg-transparent">
+      <div className="container-page py-20 sm:py-28">
+        <ScrollReveal>
+          <div className="surface-card-elevated p-8 sm:p-12 border border-border/80 bg-card-elevated relative overflow-hidden">
+            <div className="absolute inset-0 -z-10" style={{ background: "radial-gradient(40% 40% at 90% 90%, rgba(77,120,201,0.06), transparent 80%)" }} />
+            <div className="grid gap-8 md:grid-cols-[1.4fr_1fr] items-center">
+              <div>
+                <div className="text-xs uppercase tracking-[0.18em] text-[color:var(--limpow-blue-light)] font-bold">
+                  Capítulo 5 — Ação
+                </div>
+                <h2 className="mt-3 text-3xl sm:text-4xl font-display leading-tight tracking-tight">
+                  Pronto para otimizar os cuidados com a sua frota?
+                </h2>
+                <p className="mt-4 text-secondary leading-relaxed max-w-xl">
+                  Fale diretamente com o Victor no WhatsApp para descrever o tamanho da sua frota e receber uma proposta personalizada em poucos minutos.
+                </p>
+              </div>
+              <div className="flex flex-col gap-3 md:items-end justify-center">
+                <WhatsAppCTA message={WPP_MESSAGES.empresas} label="Falar sobre o Plano Frota" />
+                <a
+                  href={`mailto:${SITE.email}?subject=Plano%20Frota%20Dr.%20Limpow`}
+                  className="btn-secondary text-center w-full sm:w-auto"
+                >
+                  Enviar e-mail comercial
+                </a>
+              </div>
+            </div>
+          </div>
+        </ScrollReveal>
+      </div>
     </section>
   );
 }

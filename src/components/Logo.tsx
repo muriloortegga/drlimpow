@@ -1,4 +1,4 @@
-import type { SVGProps } from "react";
+import { useState, type SVGProps } from "react";
 
 /**
  * Dr. Limpow — gota estilizada com rosto sutil:
@@ -11,6 +11,22 @@ export function LogoIcon({
   size = 40,
   ...props
 }: { size?: number } & Omit<SVGProps<SVGSVGElement>, "width" | "height">) {
+  const [error, setError] = useState(false);
+
+  if (!error) {
+    return (
+      <img
+        src="/logos/logo-icon.svg"
+        alt="Ícone Dr. Limpow"
+        width={size}
+        height={size}
+        onError={() => setError(true)}
+        className={props.className}
+        style={{ objectFit: "contain", width: size, height: size }}
+      />
+    );
+  }
+
   return (
     <svg
       width={size}
@@ -52,7 +68,7 @@ function Wordmark({ size = 28 }: { size?: number }) {
   return (
     <span
       style={{
-        fontFamily: '"Baloo 2", system-ui, sans-serif',
+        fontFamily: '"DM Sans", system-ui, sans-serif',
         fontWeight: 700,
         fontSize: size,
         lineHeight: 1,
@@ -66,6 +82,19 @@ function Wordmark({ size = 28 }: { size?: number }) {
 }
 
 export function LogoHorizontal({ iconSize = 36, textSize = 24 }: { iconSize?: number; textSize?: number }) {
+  const [error, setError] = useState(false);
+
+  if (!error) {
+    return (
+      <img
+        src="/logos/logo-horizontal.svg"
+        alt="Dr. Limpow"
+        onError={() => setError(true)}
+        style={{ height: iconSize * 1.1, objectFit: "contain" }}
+      />
+    );
+  }
+
   return (
     <span className="inline-flex items-center gap-2.5">
       <LogoIcon size={iconSize} />
@@ -75,6 +104,19 @@ export function LogoHorizontal({ iconSize = 36, textSize = 24 }: { iconSize?: nu
 }
 
 export function LogoVertical({ iconSize = 72, textSize = 28 }: { iconSize?: number; textSize?: number }) {
+  const [error, setError] = useState(false);
+
+  if (!error) {
+    return (
+      <img
+        src="/logos/logo-vertical.svg"
+        alt="Dr. Limpow"
+        onError={() => setError(true)}
+        style={{ height: iconSize * 1.6, objectFit: "contain" }}
+      />
+    );
+  }
+
   return (
     <span className="inline-flex flex-col items-center gap-3">
       <LogoIcon size={iconSize} />
@@ -84,6 +126,19 @@ export function LogoVertical({ iconSize = 72, textSize = 28 }: { iconSize?: numb
 }
 
 export function LogoTip({ iconSize = 44, textSize = 26 }: { iconSize?: number; textSize?: number }) {
+  const [error, setError] = useState(false);
+
+  if (!error) {
+    return (
+      <img
+        src="/logos/logo-tip.svg"
+        alt="Dr. Limpow"
+        onError={() => setError(true)}
+        style={{ height: iconSize * 1.3, objectFit: "contain" }}
+      />
+    );
+  }
+
   return (
     <span className="inline-flex items-center gap-3">
       <LogoIcon size={iconSize} />
@@ -96,3 +151,4 @@ export function LogoTip({ iconSize = 44, textSize = 26 }: { iconSize?: number; t
     </span>
   );
 }
+
