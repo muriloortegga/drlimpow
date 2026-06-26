@@ -136,7 +136,7 @@ function DecisionCard({
   return (
     <Link
       to={to}
-      className={`group relative flex flex-col gap-3 rounded-2xl border p-6 transition-all duration-300 ${
+      className={`group relative flex flex-col gap-3 rounded-2xl border p-6 transition-[transform,border-color] duration-200 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] ${
         primary
           ? "bg-primary text-primary-foreground border-transparent shadow-[var(--shadow-primary)] hover:translate-y-[-2px]"
           : "surface-card hover:border-border-strong hover:translate-y-[-2px]"
@@ -152,7 +152,7 @@ function DecisionCard({
         </div>
         <IconArrowRight
           size={18}
-          className={`transition-transform duration-300 group-hover:translate-x-1 ${primary ? "text-white" : "text-muted-foreground"}`}
+          className={`transition-transform duration-200 group-hover:translate-x-1 ${primary ? "text-white" : "text-muted-foreground"}`}
         />
       </div>
       <div>
@@ -190,13 +190,13 @@ function Services() {
           <Reveal key={s.name} delay={i * 60}>
             <Link
               to={s.to}
-              className="group flex items-center gap-4 surface-card p-5 hover:border-border-strong transition-colors"
+              className="group flex items-center gap-4 surface-card p-5 hover:border-border-strong transition-[border-color] duration-200"
             >
-              <div className="grid h-11 w-11 place-items-center rounded-lg bg-card-elevated text-foreground group-hover:text-[color:var(--limpow-blue-light)] transition-colors">
+              <div className="grid h-11 w-11 place-items-center rounded-lg bg-card-elevated text-foreground group-hover:text-[color:var(--limpow-blue-light)] transition-colors duration-200">
                 {s.icon}
               </div>
               <div className="flex-1 font-medium">{s.name}</div>
-              <IconArrowRight size={18} className="text-muted-foreground group-hover:translate-x-1 group-hover:text-foreground transition-all" />
+              <IconArrowRight size={18} className="text-muted-foreground group-hover:translate-x-1 group-hover:text-foreground transition-[transform,color] duration-200" />
             </Link>
           </Reveal>
         ))}
