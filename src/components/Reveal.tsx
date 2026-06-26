@@ -3,15 +3,13 @@ import { useEffect, useRef, type ReactNode } from "react";
 export function Reveal({
   children,
   delay = 0,
-  as: Tag = "div",
   className = "",
 }: {
   children: ReactNode;
   delay?: number;
-  as?: keyof JSX.IntrinsicElements;
   className?: string;
 }) {
-  const ref = useRef<HTMLElement | null>(null);
+  const ref = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const el = ref.current;
@@ -36,11 +34,9 @@ export function Reveal({
     return () => io.disconnect();
   }, [delay]);
 
-  const Component = Tag as keyof JSX.IntrinsicElements;
-  // @ts-expect-error generic intrinsic ref
   return (
-    <Component ref={ref} className={`reveal ${className}`.trim()}>
+    <div ref={ref} className={`reveal ${className}`.trim()}>
       {children}
-    </Component>
+    </div>
   );
 }
