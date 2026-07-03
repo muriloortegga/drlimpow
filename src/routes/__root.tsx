@@ -72,7 +72,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { name: "theme-color", content: "#0B1420" },
-      { title: "Dr. Limpow — Higienização e estética automotiva a domicílio" },
+      { title: "Dr.Limpow — Higienização e estética automotiva a domicílio" },
       {
         name: "description",
         content:
@@ -81,16 +81,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "author", content: "Dr. Limpow" },
       { property: "og:site_name", content: "Dr. Limpow" },
       { property: "og:type", content: "website" },
-      { property: "og:title", content: "Dr. Limpow — Higienização e estética automotiva a domicílio" },
+      { property: "og:title", content: "Dr.Limpow — Higienização e estética automotiva a domicílio" },
       {
         property: "og:description",
         content:
           "Atendimento a domicílio em Vargem Grande Paulista e Cotia. Para pessoa física e frotas.",
       },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:title", content: "Dr. Limpow — Higienização e estética automotiva a domicílio" },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/de56955a-bd1a-4c95-b01c-48adabf32934/id-preview-1b3ba239--1e3b5d84-e442-4174-8074-a5c52105baa1.lovable.app-1782492798645.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/de56955a-bd1a-4c95-b01c-48adabf32934/id-preview-1b3ba239--1e3b5d84-e442-4174-8074-a5c52105baa1.lovable.app-1782492798645.png" },
+      { name: "twitter:title", content: "Dr.Limpow — Higienização e estética automotiva a domicílio" },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/pTIVRkWw87ZCQBlo92IxpCmfmQr1/social-images/social-1782919722843-Captura_de_Tela_2026-07-01_às_12.21.09.webp" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/pTIVRkWw87ZCQBlo92IxpCmfmQr1/social-images/social-1782919722843-Captura_de_Tela_2026-07-01_às_12.21.09.webp" },
+      { name: "description", content: "Dr. Limpow's Shine Hub offers professional automotive and upholstery cleaning services at your location." },
+      { property: "og:description", content: "Dr. Limpow's Shine Hub offers professional automotive and upholstery cleaning services at your location." },
+      { name: "twitter:description", content: "Dr. Limpow's Shine Hub offers professional automotive and upholstery cleaning services at your location." },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
