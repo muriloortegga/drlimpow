@@ -56,19 +56,18 @@ function Hero() {
         </Reveal>
         <Reveal delay={80}>
           <h1 className="mt-6 text-4xl sm:text-5xl md:text-6xl font-display leading-[1.05] max-w-3xl">
-            Manchas, odores e ácaros saem. Seu estofado volta a ser confortável.
+            Seu estofado limpo, higienizado e renovado sem você sair de casa.
           </h1>
         </Reveal>
         <Reveal delay={140}>
           <p className="mt-5 text-base sm:text-lg text-secondary max-w-2xl">
-            Higienização profissional de sofás, poltronas, cadeiras, tapetes e estofados de carro —
-            feita no seu endereço, sem você precisar carregar nada.
+            Higienizamos sofás, colchões, tapetes, cadeiras, poltronas e automóveis com atendimento em domicílio.
           </p>
         </Reveal>
         <Reveal delay={200}>
           <div className="mt-8 flex flex-wrap gap-3">
-            <WhatsAppCTA message={WPP_MESSAGES.estofados} label="Quero higienizar meu estofado" />
-            <a href="#processo" className="btn-secondary">Como funciona</a>
+            <WhatsAppCTA message={WPP_MESSAGES.estofados} label="Solicitar orçamento" />
+            <a href="#como-agendar" className="btn-secondary">Como agendar</a>
           </div>
         </Reveal>
       </div>
@@ -115,22 +114,22 @@ function Included() {
 }
 
 const steps = [
-  { icon: <IconCalendar size={22} />, title: "Agendamento", desc: "Você fala com a gente no WhatsApp e combinamos data e horário." },
-  { icon: <IconHome size={22} />, title: "Atendimento no seu endereço", desc: "Levamos os equipamentos e produtos até você. Não precisa sair de casa." },
-  { icon: <IconSparkle size={22} />, title: "Resultado", desc: "Estofado higienizado, sem manchas, sem odor e pronto pra usar." },
+  { icon: <IconCalendar size={22} />, title: "Envie uma foto", desc: "Compartilhe algumas fotos dos estofados pelo WhatsApp para uma avaliação" },
+  { icon: <IconHome size={22} />, title: "Agende o melhor dia", desc: "Após avaliação, enviamos o orçamento e marcamos a data do atendimento" },
+  { icon: <IconSparkle size={22} />, title: "Nós fazemos o restante", desc: "Vamos até você com todos os equipamentos necessários para uma higienização com segurança e praticidade." },
 ];
 
 function Process() {
   return (
-    <section id="processo" className="border-y border-border bg-[color:var(--card)]/40">
+    <section id="como-agendar" className="border-y border-border bg-[color:var(--card)]/40">
       <div className="container-page py-20">
         <Reveal>
           <div className="max-w-2xl">
             <div className="text-xs uppercase tracking-[0.18em] text-[color:var(--limpow-blue-light)] font-medium">
-              Como funciona
+              Como agendar
             </div>
             <h2 className="mt-3 text-3xl sm:text-4xl font-display leading-tight">
-              Três passos. Sem burocracia.
+              3 passos para um orçamento
             </h2>
           </div>
         </Reveal>
@@ -150,6 +149,11 @@ function Process() {
             </Reveal>
           ))}
         </div>
+        <Reveal delay={300}>
+          <div className="mt-12 flex justify-center">
+            <WhatsAppCTA message={WPP_MESSAGES.estofados} label="Solicitar orçamento" />
+          </div>
+        </Reveal>
       </div>
     </section>
   );
@@ -164,10 +168,10 @@ function Gallery() {
             Antes e depois
           </div>
           <h2 className="mt-3 text-3xl sm:text-4xl font-display leading-tight">
-            A diferença está no detalhe.
+            Veja a transformação
           </h2>
           <p className="mt-3 text-secondary">
-            Galeria de fotos reais — em breve. As imagens abaixo são placeholders.
+            Sem filtros e sem edição. Apenas resultados reais.
           </p>
         </div>
       </Reveal>
@@ -180,6 +184,11 @@ function Gallery() {
           </Reveal>
         ))}
       </div>
+      <Reveal delay={200}>
+        <div className="mt-12 flex justify-center">
+          <WhatsAppCTA message={WPP_MESSAGES.estofados} label="Solicitar orçamento" />
+        </div>
+      </Reveal>
     </section>
   );
 }
@@ -188,14 +197,29 @@ function Testimonials() {
   return (
     <section className="container-page py-16">
       <Reveal>
-        <div className="max-w-2xl">
-          <div className="text-xs uppercase tracking-[0.18em] text-[color:var(--limpow-blue-light)] font-medium">
-            Depoimentos
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
+          <div className="max-w-2xl">
+            <div className="text-xs uppercase tracking-[0.18em] text-[color:var(--limpow-blue-light)] font-medium">
+              Depoimentos
+            </div>
+            <h2 className="mt-3 text-3xl sm:text-4xl font-display leading-tight">
+              O que nossos clientes dizem
+            </h2>
+            <p className="mt-3 text-secondary">
+              Avaliações reais publicadas no Google por clientes que confiaram no nosso trabalho.
+            </p>
           </div>
-          <h2 className="mt-3 text-3xl sm:text-4xl font-display leading-tight">
-            Quem já usou, conta.
-          </h2>
-          <p className="mt-3 text-secondary">Placeholders — serão substituídos por depoimentos reais.</p>
+          <div className="flex items-center gap-3 surface-card px-4 py-3 shrink-0">
+            <div className="flex">
+              {[0, 1, 2, 3, 4].map((i) => (
+                <IconStar key={i} size={18} className="text-[color:var(--limpow-blue-light)]" />
+              ))}
+            </div>
+            <div className="text-sm">
+              <div className="font-semibold">5,0 no Google</div>
+              <div className="text-muted-foreground text-xs">Avaliações de clientes</div>
+            </div>
+          </div>
         </div>
       </Reveal>
       <div className="mt-8 grid gap-4 md:grid-cols-2">
@@ -225,12 +249,12 @@ function CTA() {
     <section className="container-page pb-20 sm:pb-28">
       <Reveal>
         <div className="surface-card-elevated p-8 sm:p-12 text-center">
-          <h2 className="text-3xl sm:text-4xl font-display">Vamos higienizar o seu?</h2>
+          <h2 className="text-3xl sm:text-4xl font-display">Seu estofado merece esse cuidado.</h2>
           <p className="mt-3 text-secondary max-w-xl mx-auto">
-            Fale no WhatsApp e a gente já combina horário no seu endereço.
+            Fale conosco pelo WhatsApp e receba seu orçamento de forma rápida e descomplicada.
           </p>
           <div className="mt-7 flex justify-center">
-            <WhatsAppCTA message={WPP_MESSAGES.estofados} label="Quero higienizar meu estofado" />
+            <WhatsAppCTA message={WPP_MESSAGES.estofados} label="Solicitar orçamento" />
           </div>
         </div>
       </Reveal>

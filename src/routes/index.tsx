@@ -95,6 +95,7 @@ function Hero() {
               eyebrow="Pessoa física"
               title="Estofados"
               desc="Sofá, poltrona, cadeiras, tapetes e estofado do carro."
+              primary
             />
             <DecisionCard
               to="/lavagem-automotiva"
@@ -102,7 +103,6 @@ function Hero() {
               eyebrow="Pessoa física"
               title="Meu carro"
               desc="Lavagem, enceramento, polimento e vitrificação."
-              primary
             />
             <DecisionCard
               to="/empresas"
@@ -167,11 +167,11 @@ function DecisionCard({
 }
 
 const services = [
+  { icon: <IconSofa size={22} />, name: "Higienização de estofados", to: "/estofados" },
   { icon: <IconCar size={22} />, name: "Lavagem completa", to: "/lavagem-automotiva" },
   { icon: <IconSparkle size={22} />, name: "Enceramento técnico", to: "/lavagem-automotiva" },
   { icon: <IconSparkle size={22} />, name: "Polimento", to: "/lavagem-automotiva" },
   { icon: <IconShield size={22} />, name: "Vitrificação", to: "/lavagem-automotiva" },
-  { icon: <IconSofa size={22} />, name: "Higienização de estofados", to: "/estofados" },
   { icon: <IconFleet size={22} />, name: "Plano Frota Dr. Limpow", to: "/empresas" },
 ];
 
